@@ -268,10 +268,10 @@ public class StudentRecordManagement{
             System.out.println("1. Update Student Profile Details");
             System.out.println("2. Update Student Course Details");
             System.out.println("3. Display Student Details");
-            System.out.println("0. Back to Main Menu");
+            System.out.println("0. Exit");
             System.out.print("Enter Selection: ");
             subChoice = scanner.nextInt();
-            System.out.printf("\n");
+            System.out.printf("\n=======================================\n\n");
             
             switch (subChoice) {
                case 1:
@@ -292,8 +292,7 @@ public class StudentRecordManagement{
                      System.out.printf("\n----------------------------------------------\n");
                      System.out.print("Enter Selection: ");
                      UPChoice = scanner.nextInt();
-                     scanner.nextLine(); // Consume newline character
-            
+                     scanner.nextLine();             
                      switch (UPChoice) {
                         case 1:
                            System.out.print("Update Student ID No.: ");
@@ -341,8 +340,8 @@ public class StudentRecordManagement{
                            student.setEmail(newEmail); 
                            break;
                         case 0:
-                           System.out.print("Return"); 
-                           break;
+                           System.out.print("Return");
+                           return;
                         default:
                            System.out.println("Invalid choice. Please try again.");
                            break;
@@ -366,25 +365,28 @@ public class StudentRecordManagement{
                   break;
                case 3:
                   // Display Student and Course Details
-                  System.out.println("Student Details:");
-                  System.out.println("Name: " + student.getFullName());
+                  System.out.println("Student Details");
+                  System.out.println("---------------------------------------------\n");
                   System.out.println("Student ID: " + student.getStudentId());
+                  System.out.println("Name: " + student.getFullName());
                   System.out.println("Age: " + student.getAge());
                   System.out.println("Year Level: " + student.getYrLvl());
                   System.out.println("Phone Number: " + student.getPhoneNumber());
                   System.out.println("Email: " + student.getEmail());
-
+             
                   if (course != null) {
-                     System.out.println("\nCourse Details:");
                      System.out.println("Course Name: " + course.getCourseName());
                      System.out.println("Course Code: " + course.getCourseCode());
                      System.out.println("Department: " + course.getDepartment());
+                     System.out.printf("\n\n=======================================\n");
+
                   } else {
                      System.out.println("Course details not available.");
                   }
                   break;
-               case 0:
-                  
+                  case 0:
+                     System.out.print("Exit");
+                     System.exit(0);
                   break;
                default:
                   System.out.println("Invalid choice. Please try again.");
