@@ -98,11 +98,6 @@ class Student{
    public void setEmail(String email){
       this.email = email;
    }
-
-   //Custom Methods/Computed Properties
-   public String getFullName(){
-      return first_name + " " + middle_name + " " + last_name + " " + suffix;  
-   }
    
 }
 
@@ -341,7 +336,7 @@ public class StudentRecordManagement{
                            break;
                         case 0:
                            System.out.print("Return");
-                           return;
+                           break;
                         default:
                            System.out.println("Invalid choice. Please try again.");
                            break;
@@ -365,16 +360,18 @@ public class StudentRecordManagement{
                   break;
                case 3:
                   // Display Student and Course Details
-                  System.out.println("Student Details");
-                  System.out.println("---------------------------------------------\n");
-                  System.out.println("Student ID: " + student.getStudentId());
-                  System.out.println("Name: " + student.getFullName());
+                  System.out.println("Student ID No: " + student.getStudentId());
+                  System.out.println("First Name: " + student.getFirstName());
+                  System.out.println("Middle Name: " + student.getMiddleName());
+                  System.out.println("Last Name: " + student.getLastName());
+                  System.out.println("Suffix: " + student.getSuffix());
                   System.out.println("Age: " + student.getAge());
                   System.out.println("Year Level: " + student.getYrLvl());
                   System.out.println("Phone Number: " + student.getPhoneNumber());
                   System.out.println("Email: " + student.getEmail());
              
                   if (course != null) {
+                     System.out.println("Student Course Details:");
                      System.out.println("Course Name: " + course.getCourseName());
                      System.out.println("Course Code: " + course.getCourseCode());
                      System.out.println("Department: " + course.getDepartment());
@@ -384,10 +381,9 @@ public class StudentRecordManagement{
                      System.out.println("Course details not available.");
                   }
                   break;
-                  case 0:
-                     System.out.print("Exit");
-                     System.exit(0);
-                  break;
+               case 0:
+                  System.out.print("Exit");
+                  System.exit(0);
                default:
                   System.out.println("Invalid choice. Please try again.");
                   break;
